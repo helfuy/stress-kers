@@ -1,0 +1,116 @@
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.quiz-container {
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* Позиция и цвет "1/10" */
+.question-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.question-number .yellow {
+    color: #ffa500; /* Жёлтый цвет */
+}
+
+.question-number .white {
+    color: #fff; /* Белый цвет */
+}
+
+.question-text {
+    font-size: 30px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Стили для списка */
+.options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options li {
+    margin-bottom: 15px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.option input {
+    display: none;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffa500;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.option input:checked + .circle {
+    background-color: #ffa500;
+}
+
+.button {
+    background-color: #ffa500;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; /* Закругление */
+    padding: 10px 40px;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 20px; /* Отступ снизу */
+    right: 20px; /* Отступ справа */
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e69500; /* Темнее при наведении */
+}
+
+.button-finish {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #ffc107; /* Ярко-жёлтый цвет */
+    color: #000; /* Чёрный текст */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none; /* Убирает подчёркивание */
+    border: none;
+    border-radius: 25px; /* Скруглённые углы */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-finish:hover {
+    background-color: #e0a800; /* Темно-жёлтый при наведении */
+    transform: scale(1.05); /* Легкое увеличение */
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* Тень для эффекта */
+}
