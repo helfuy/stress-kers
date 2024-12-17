@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос</title>
+    <link rel="stylesheet" href="css/style5.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="question-number">
+            <span class="yellow">5</span><span class="white">/10</span>
+        </div>
+        <div class="question-text">
+            <strong>5.</strong>Как вы справляетесь с неудачами?
+        </div>
+        <ul class="options">
+            <li>
+                <label class="option">
+                    <input type="radio" name="stress" value="analyze">
+                    <span class="circle"></span>
+                    Анализирую и учусь
+                </label>
+            </li>
+            <li>
+                <label class="option">
+                    <input type="radio" name="stress" value="anxiety">
+                    <span class="circle"></span>
+                    Стараюсь забыть
+                </label>
+            </li>
+            <li>
+                <label class="option">
+                    <input type="radio" name="stress" value="isolate">
+                    <span class="circle"></span>
+                    Чувствую себя подавленным
+                </label>
+            </li>
+        </ul>
+        <a href="question6.html" class="button">Далее</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('input[name="stress"]'); // Получаем все варианты ответа
+            const nextButton = document.querySelector('.button'); // Кнопка "Далее"
+        
+            nextButton.addEventListener('click', (e) => {
+                e.preventDefault(); // Останавливаем переход по ссылке временно
+                let selectedValue = null;
+        
+                options.forEach(option => {
+                    if (option.checked) selectedValue = option.value; // Запоминаем выбранный ответ
+                });
+        
+                if (selectedValue) {
+                    let answers = JSON.parse(localStorage.getItem('stressAnswers')) || [];
+                    answers.push(selectedValue); // Добавляем ответ
+                    localStorage.setItem('stressAnswers', JSON.stringify(answers)); // Сохраняем ответы
+        
+                    // Переход на следующую страницу
+                    window.location.href = nextButton.getAttribute('href');
+                } else {
+                    alert('Пожалуйста, выберите один из вариантов ответа!');
+                }
+            });
+        });
+        </script>
+        
+</body>
+</html>

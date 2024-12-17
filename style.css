@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'FontName'; 
+    src: url(/media/font/NEXT\ ART_Regular.otf); 
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('media/img/Frame\ 36.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+.title {
+    font-size: 90px;
+    font-weight: bold;
+    color: #ffc507;
+    text-shadow: #5c5303ce 1px 1px 0, #5c5303ce 2px 2px 0, 
+    #5c5303ce 3px 3px 0, #5c5303ce 4px 4px 0, 
+    #5c5303ce 5px 5px 0;
+    margin: 15px 0;
+    text-align: center;
+}
+.container {
+    position: relative;
+    right: 20%;
+    max-width: 890px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.subtitle {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+.description {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+.levels {
+    font-size: 24px;
+    margin: 20px 0;
+}
+.level-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 10px 0;
+    
+}
+.level-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffc107;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #ffc107;
+}
+.pass {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.pass p {
+    font-size: 36px;
+}
+.pass img {
+    width: 76px;
+}
+.start-button {
+    font-family: 'Arial', sans-serif; /* Новый шрифт */
+    font-size: 40px; /* Уменьшенный размер шрифта */
+    padding: 10px 30px; /* Меньший отступ внутри кнопки */
+    background-color: #ffc107; /* Жёлтый фон (остается) */
+    color: #000; /* Чёрный текст */
+    border-radius: 25px; /* Скругление углов */
+    text-decoration: none; /* Убираем подчёркивание */
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    gap: 10px;
+}
+
+.start-button:hover {
+    background-color: #e0a800; /* Темнее при наведении */
+    transform: scale(1.05); /* Небольшое увеличение */
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* Тень */
+}
+
+
+.title, .levels, .level-circle, .level-item, .description, .pass,{
+    font-family: 'Times New Roman', Times, serif; 
+}

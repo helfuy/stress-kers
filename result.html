@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат теста</title>
+    <link rel="stylesheet" href="result.css"> <!-- Подключаем стили -->
+</head>
+<body>
+    <h1>Результат теста</h1>
+    <div class="result" id="result">
+        <!-- Здесь будет текст результата -->
+    </div>
+    <div class="animation-container">
+        <img id="emotionImage" src="" alt="Emotion Image" class="emotion">
+    </div>
+    <a href="index.html" class="button-finish">Пройти ещё раз</a>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const answers = JSON.parse(localStorage.getItem('stressAnswers')) || [];
+        const resultDiv = document.getElementById('result');
+        const emotionImage = document.getElementById('emotionImage');
+
+        // Подсчёт ответов
+        const analyzeCount = answers.filter(ans => ans === 'analyze').length;
+        const anxietyCount = answers.filter(ans => ans === 'anxiety').length;
+        const isolateCount = answers.filter(ans => ans === 'isolate').length;
+
+        // Логика результата и изображения
+        let resultText = '';
+        if (analyzeCount > anxietyCount && analyzeCount > isolateCount) {
+            resultText = 'Ваш уровень стрессоустойчивости высокий! 🎉 Вы умеете спокойно анализировать ситуации.';
+            emotionImage.src = 'media/img/happy.png'; // Весёлый
+            emotionImage.classList.add('happy-animation');
+        } else if (anxietyCount > analyzeCount && anxietyCount > isolateCount) {
+            resultText = 'Ваш уровень стрессоустойчивости средний. 😐 Иногда вы беспокоитесь, но справляетесь.';
+            emotionImage.src = 'media/img/serious.png'; // Серьёзный
+            emotionImage.classList.add('serious-animation');
+        } else {
+            resultText = 'Ваш уровень стрессоустойчивости низкий. 😢 Часто чувствуете стресс и замыкаетесь в себе.';
+            emotionImage.src = 'media/img/sad.png'; // Грустный
+            emotionImage.classList.add('sad-animation');
+        }
+
+        resultDiv.textContent = resultText;
+
+        // Очистка localStorage
+        localStorage.removeItem('stressAnswers');
+    });
+    </script>
+</body>
+</html>
